@@ -1,0 +1,38 @@
+<table class="table">
+  <caption>My tasks</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="task in tasks">
+      <td>{{task.name}}</td>
+      <td>
+        <div class="btn-group btn-group-xs" role="group">
+          <button type="button" class="btn btn-danger" ng-click="removeTask(task)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+          <button type="button" class="btn btn-info" ng-click="viewTask(task)"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> View</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{my_task.name}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{my_task.description}}</p>
+        <p><b>Status:</b>{{my_task.done && 'Done!' || 'Pending'}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
